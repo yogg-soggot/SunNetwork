@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#C29E29</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#FBE12067</color>
+    <color name="colorLogin">#FBE12067</color>
+    <color name="colorCreate">#C29E29</color>
+    <color name="colorCreateAccount">#C29E29</color>
+    <color name="colorError">#DF0000</color>
+</resources>
