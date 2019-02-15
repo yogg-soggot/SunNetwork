@@ -1,14 +1,13 @@
-package com.example.yogg_sogott.sunnetwork.Presentation;
+package com.example.yogg_sogott.sunnetwork.presentation;
 
 import com.arellomobile.mvp.MvpView;
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy;
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
 @StateStrategyType(AddToEndSingleStrategy.class)
-public interface LoginView extends MvpView {
+public interface CreateAccountView extends MvpView {
 
-    void failedSignIn(String message);
-
+    void failedCreateAccount(String message);
 
     void hideError();
 }

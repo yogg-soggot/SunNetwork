@@ -1,6 +1,7 @@
-package com.example.yogg_sogott.sunnetwork.Presentation;
+package com.example.yogg_sogott.sunnetwork.presentation;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,8 +12,8 @@ import com.arellomobile.mvp.MvpActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.yogg_sogott.sunnetwork.R;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+//import butterknife.BindView;
+//import butterknife.ButterKnife;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 
@@ -21,11 +22,11 @@ public class LoginActivity extends MvpActivity implements LoginView {
     @InjectPresenter
     LoginPresenter mLoginPresenter;
 
-    @BindView (R.id.log_in) Button mLoginButton;
-    @BindView (R.id.create) Button mCreateAccountButton;
 
-    @BindView (R.id.login) EditText mLoginText;
-    @BindView (R.id.password) EditText mPasswordText;
+    private Button mLoginButton;
+    private Button mCreateAccountButton;
+    private EditText mLoginText;
+    private EditText mPasswordText;
 
     private AlertDialog mErrorDialog;
 
@@ -35,19 +36,26 @@ public class LoginActivity extends MvpActivity implements LoginView {
         setContentView(R.layout.activity_login);
         setRequestedOrientation(SCREEN_ORIENTATION_PORTRAIT);
 
-        /*mLoginButton =  findViewById(R.id.log_in);
+        mLoginButton =  findViewById(R.id.log_in);
         mCreateAccountButton = findViewById(R.id.create);
         mLoginText = findViewById(R.id.login);
-        mPasswordText = findViewById(R.id.password);*/
-        ButterKnife.bind(this);
+        mPasswordText = findViewById(R.id.password);
+        //ButterKnife.bind(this);
 
-        mCreateAccountButton.setOnClickListener(new View.OnClickListener() {
+        mLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                failedSignIn("Failed");
+            }
+        });
+
+        /*mCreateAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CreateAccountActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
     @Override
@@ -55,8 +63,23 @@ public class LoginActivity extends MvpActivity implements LoginView {
         mErrorDialog = new AlertDialog.Builder(this)
                 .setTitle(R.string.app_name)
                 .setMessage(message)
-                .setOnCancelListener(dialog -> mLoginPresenter.onErrorCancel())
                 .show();
+        mErrorDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                mLoginPresenter.onErrorCancel();
+            }
+        });
+    }
 
-
+    @Override
+    public void hideError() {
+        if (mErrorDialog != null && mErrorDialog.isShowing()) {
+            mErrorDialog.cancel();
+        }
+    }
 }
+
+
+
+

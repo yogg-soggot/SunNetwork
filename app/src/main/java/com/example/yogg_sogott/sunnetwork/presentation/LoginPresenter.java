@@ -1,4 +1,4 @@
-package com.example.yogg_sogott.sunnetwork.Presentation;
+package com.example.yogg_sogott.sunnetwork.presentation;
 
 
 import com.arellomobile.mvp.InjectViewState;

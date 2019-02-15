@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Presentation.LoginActivity"
+    tools:context=".presentation.LoginActivity"
 
 
     >
@@ -15,10 +15,10 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/desc"
         android:scaleType="fitStart"
+        android:src="@drawable/sun"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sun" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/login"
