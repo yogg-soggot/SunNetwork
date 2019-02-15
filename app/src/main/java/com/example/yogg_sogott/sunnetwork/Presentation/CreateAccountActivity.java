@@ -23,7 +23,7 @@ public class CreateAccountActivity extends MvpActivity implements LoginView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_create_acc);
         setRequestedOrientation(SCREEN_ORIENTATION_PORTRAIT);
 
         mCreateAccountButton = findViewById(R.id.create_create);

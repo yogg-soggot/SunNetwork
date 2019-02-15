@@ -34,4 +34,7 @@ dependencies {
     implementation 'com.arello-mobile:moxy:1.5.5'
     annotationProcessor 'com.arello-mobile:moxy-compiler:1.5.5'
     implementation 'com.arello-mobile:moxy-android:1.5.5'
+    //ButterKnife
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
 }
