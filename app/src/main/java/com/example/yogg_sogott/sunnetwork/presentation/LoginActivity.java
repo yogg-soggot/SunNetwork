@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,17 +50,18 @@ public class LoginActivity extends MvpActivity implements LoginView {
             }
         });
 
-        /*mCreateAccountButton.setOnClickListener(new View.OnClickListener() {
+        mCreateAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CreateAccountActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 
     @Override
-    public void failedSignIn(String message) {
+    public void failedSignIn(final String message) {
+        Log.e("Sign In",message);
         mErrorDialog = new AlertDialog.Builder(this)
                 .setTitle(R.string.app_name)
                 .setMessage(message)
