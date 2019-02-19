@@ -12,6 +12,7 @@ import android.widget.EditText;
 import com.arellomobile.mvp.MvpActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.yogg_sogott.sunnetwork.R;
+import com.example.yogg_sogott.sunnetwork.data.PseudoAuthentication;
 
 //import butterknife.BindView;
 //import butterknife.ButterKnife;
@@ -46,7 +47,11 @@ public class LoginActivity extends MvpActivity implements LoginView {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                failedSignIn("Failed");
+                PseudoAuthentication b = new PseudoAuthentication();
+                b.setLogin(mLoginText.getText().toString());
+                b.auth();
+                mPasswordText.setText(b.getTrue_password());
+
             }
         });
 

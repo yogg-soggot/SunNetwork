@@ -7,16 +7,20 @@ package com.example.yogg_sogott.sunnetwork.data;
 
 
 
+
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 
 
-public class PseudoAuthentication extends Fragment {
+
+public class PseudoAuthentication {
     private String login;
     private String password;
-    private String true_password;
+    private String true_password = "def";
+
+    private static SharedPreferences sharedPref;
 
     @NonNull
     public String getLogin() {
@@ -39,20 +43,31 @@ public class PseudoAuthentication extends Fragment {
 
     public void setPassword(String password) {
         this.password = password;
+
     }
+
+    static void init(Context context){
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+
+
+    }
+
+
 
 
 
     public void createAccount(){
-        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString(login,password);
-        editor.apply();
+       sharedPref.edit().putString(login,password).apply();
+
+
     }
 
-    public void auth(){
-        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-        this.true_password = sharedPref.getString(login,null);
-    }
+   public void auth() {
+       this.true_password = sharedPref.getString(login, "1");
+
+
+
+
+   }
 
 }

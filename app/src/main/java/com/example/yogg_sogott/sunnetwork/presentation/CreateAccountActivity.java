@@ -2,12 +2,15 @@ package com.example.yogg_sogott.sunnetwork.presentation;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.arellomobile.mvp.MvpActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.yogg_sogott.sunnetwork.R;
+import com.example.yogg_sogott.sunnetwork.data.PseudoAuthentication;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 
@@ -34,7 +37,21 @@ public class CreateAccountActivity extends MvpActivity implements CreateAccountV
         mLoginText = findViewById(R.id.login_c);
         mPasswordText = findViewById(R.id.password_c);
         mPasswordText2 = findViewById(R.id.password_2);
+
+        mCreateAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PseudoAuthentication a = new PseudoAuthentication();
+                a.setLogin(mLoginText.getText().toString());
+                a.setPassword(mPasswordText.getText().toString());
+                a.createAccount();
+
+
+            }
+        });
+
     }
+
 
     @Override
     public void failedCreateAccount(String message) {
