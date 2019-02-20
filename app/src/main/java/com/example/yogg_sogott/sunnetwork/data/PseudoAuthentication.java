@@ -18,9 +18,10 @@ import android.support.annotation.NonNull;
 public class PseudoAuthentication {
     private String login;
     private String password;
-    private String true_password = "def";
+    private String true_password;
 
     private static SharedPreferences sharedPref;
+    private final static String CONFIRMED_LOGIN_KEY = "This key is needed to get login after auth is done";
 
     @NonNull
     public String getLogin() {
@@ -52,7 +53,13 @@ public class PseudoAuthentication {
 
     }
 
+    public String getConfirmedLogin(){
+        return sharedPref.getString(CONFIRMED_LOGIN_KEY,"Anonymous");
+    }
 
+    public void setConfirmedLogin(String login){
+        sharedPref.edit().putString(CONFIRMED_LOGIN_KEY,login).apply();
+    }
 
 
 
@@ -63,7 +70,7 @@ public class PseudoAuthentication {
     }
 
    public void auth() {
-       this.true_password = sharedPref.getString(login, "1");
+       this.true_password = sharedPref.getString(login, null);
 
 
 
