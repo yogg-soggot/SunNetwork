@@ -2,7 +2,7 @@ package com.example.yogg_sogott.sunnetwork.data;
 
 import android.app.Application;
 
-import com.example.yogg_sogott.sunnetwork.domian.AuthValidation;
+import com.example.yogg_sogott.sunnetwork.domain.AuthValidation;
 import com.example.yogg_sogott.sunnetwork.presentation.CreateAccountPresenter;
 
 public class PAuthInitManager extends Application {

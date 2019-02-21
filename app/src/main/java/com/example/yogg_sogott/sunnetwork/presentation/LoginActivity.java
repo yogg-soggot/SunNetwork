@@ -12,7 +12,7 @@ import android.widget.EditText;
 import com.arellomobile.mvp.MvpActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.yogg_sogott.sunnetwork.R;
-import com.example.yogg_sogott.sunnetwork.data.PseudoAuthentication;
+
 
 //import butterknife.BindView;
 //import butterknife.ButterKnife;

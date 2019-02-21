@@ -1,4 +1,4 @@
-package com.example.yogg_sogott.sunnetwork.domian;
+package com.example.yogg_sogott.sunnetwork.domain;
 
 
 
