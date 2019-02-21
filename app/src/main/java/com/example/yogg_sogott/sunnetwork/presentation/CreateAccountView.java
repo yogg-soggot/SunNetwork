@@ -10,4 +10,5 @@ public interface CreateAccountView extends MvpView {
     void failedCreateAccount(String message);
 
     void hideError();
+
 }

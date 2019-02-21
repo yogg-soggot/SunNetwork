@@ -47,10 +47,12 @@ public class LoginActivity extends MvpActivity implements LoginView {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PseudoAuthentication b = new PseudoAuthentication();
+                /*PseudoAuthentication b = new PseudoAuthentication();
                 b.setLogin(mLoginText.getText().toString());
                 b.auth();
-                mPasswordText.setText(b.getTrue_password());
+                mPasswordText.setText(b.getTrue_password());*/
+                mLoginPresenter.onLoginClicked(mLoginText.getText().toString(),
+                                               mPasswordText.getText().toString());
 
             }
         });

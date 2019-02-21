@@ -41,10 +41,13 @@ public class CreateAccountActivity extends MvpActivity implements CreateAccountV
         mCreateAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PseudoAuthentication a = new PseudoAuthentication();
+                /*PseudoAuthentication a = new PseudoAuthentication();
                 a.setLogin(mLoginText.getText().toString());
                 a.setPassword(mPasswordText.getText().toString());
-                a.createAccount();
+                a.createAccount();*/
+                mCreateAccountPresenter.crAccClicked(mLoginText.getText().toString(),
+                                                     mPasswordText.getText().toString(),
+                                                     mPasswordText2.getText().toString());
 
 
             }
