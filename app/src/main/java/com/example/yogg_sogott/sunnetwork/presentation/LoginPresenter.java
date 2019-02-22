@@ -16,12 +16,14 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
     }
 
     void onLoginClicked(String login, String password){
-        PseudoAuthentication signing = new PseudoAuthentication();
-        AuthValidation authValidation = new AuthValidation(null,signing);
-        signing.setLogin(login);
-        signing.setPassword(password);
-        signing.auth();
-        if (authValidation.checkPassword()){
+
+        //Dagger2
+        AuthValidationComponent AVComponent = DaggerAuthValidationComponent.create();
+        AuthValidation aV = AVComponent.getAuthValidation();
+
+        aV.creationSetter(login,password);
+        aV.getSigning().auth();
+        if (aV.checkPassword()){
             getViewState().failedSignIn("Success!");
         } else getViewState().failedSignIn("Password is wrong!");
     }

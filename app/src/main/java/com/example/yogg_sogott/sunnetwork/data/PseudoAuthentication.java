@@ -11,11 +11,16 @@ package com.example.yogg_sogott.sunnetwork.data;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
 
+
+import javax.inject.Inject;
 
 
 public class PseudoAuthentication {
+
+    @Inject
+    public PseudoAuthentication(){}
+
     private String login;
     private String password;
     private String true_password;
@@ -23,24 +28,26 @@ public class PseudoAuthentication {
     private static SharedPreferences sharedPref;
     private final static String CONFIRMED_LOGIN_KEY = "This key is needed to get login after auth is done";
 
-    @NonNull
+
     public String getLogin() {
         return login;
     }
+
 
     public void setLogin(String login) {
         this.login = login;
     }
 
-    @NonNull
+
     public String getPassword() {
         return password;
     }
 
-    @NonNull
+
     public String getTrue_password() {
         return true_password;
     }
+
 
     public void setPassword(String password) {
         this.password = password;
@@ -63,13 +70,15 @@ public class PseudoAuthentication {
 
 
 
+
     public void createAccount(){
        sharedPref.edit().putString(login,password).apply();
 
 
     }
 
-   public void auth() {
+
+    public void auth() {
        this.true_password = sharedPref.getString(login, null);
 
 
