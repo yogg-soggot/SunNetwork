@@ -1,5 +1,8 @@
 {
   "posts":[
-    {"id":1,"user_login":"Solaire","body":"Praise The Sun!"}
+    {"id":1,"user_login":"Solaire","body":"Praise The Sun!"},
+    {"id":2,"user_login":"Nikita","body":"Hello everyone! If you see this post, it means that my project works fine! It is not finally complete, may be I will add proper authentication and backend later."},
+    {"id":3,"user_login":"Nikita","body":"Unfortunately now you cannot upload your post to external server, so the post you make will be there untill you restart the application"}
+    {"id":4,"user_login":"Test","body":"This post is made to test my recycler view"}
   ]
 }
