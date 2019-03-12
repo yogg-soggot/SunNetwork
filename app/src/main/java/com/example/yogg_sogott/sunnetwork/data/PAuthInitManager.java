@@ -2,11 +2,9 @@ package com.example.yogg_sogott.sunnetwork.data;
 
 import android.app.Application;
 
-import com.example.yogg_sogott.sunnetwork.domain.AuthValidation;
-import com.example.yogg_sogott.sunnetwork.presentation.CreateAccountPresenter;
+
 
 public class PAuthInitManager extends Application {
-
 
 
 
@@ -20,11 +18,8 @@ public class PAuthInitManager extends Application {
          */
         PseudoAuthentication.init(this);
 
-        //Dependency injection without dagger
-        /*PseudoAuthentication creation = new PseudoAuthentication();
-        PseudoAuthentication signing = new PseudoAuthentication();
-        AuthValidation authValidation = new AuthValidation(creation,signing);
-        createAccount = new CreateAccountPresenter.CreateAccount(creation, authValidation);*/
+
+
 
 
 

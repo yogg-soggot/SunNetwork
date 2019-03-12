@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.yogg_sogott.sunnetwork" >
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name=".data.PAuthInitManager"
@@ -18,7 +19,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.CreateAccountActivity"></activity>
+        <activity android:name=".presentation.TestActivity"></activity>
+        <activity android:name=".presentation.FeedActivity"></activity>
     </application>
+
 
 
 </manifest>

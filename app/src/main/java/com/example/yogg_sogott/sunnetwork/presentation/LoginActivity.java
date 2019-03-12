@@ -42,15 +42,11 @@ public class LoginActivity extends MvpActivity implements LoginView {
         mCreateAccountButton = findViewById(R.id.create);
         mLoginText = findViewById(R.id.login);
         mPasswordText = findViewById(R.id.password);
-        //ButterKnife.bind(this);
+
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*PseudoAuthentication b = new PseudoAuthentication();
-                b.setLogin(mLoginText.getText().toString());
-                b.auth();
-                mPasswordText.setText(b.getTrue_password());*/
                 mLoginPresenter.onLoginClicked(mLoginText.getText().toString(),
                                                mPasswordText.getText().toString());
 
@@ -86,6 +82,17 @@ public class LoginActivity extends MvpActivity implements LoginView {
         if (mErrorDialog != null && mErrorDialog.isShowing()) {
             mErrorDialog.cancel();
         }
+    }
+    @Override
+    public void gotoTest() {
+        Intent intent = new Intent(getApplicationContext(),TestActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void gotoFeed() {
+        Intent intent = new Intent(getApplicationContext(),FeedActivity.class);
+        startActivity(intent);
     }
 }
 

@@ -3,12 +3,13 @@ package com.example.yogg_sogott.sunnetwork.presentation;
 import com.arellomobile.mvp.MvpView;
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy;
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
+import com.example.yogg_sogott.sunnetwork.data.PostDTO;
+
+import java.util.List;
 
 @StateStrategyType(AddToEndSingleStrategy.class)
-public interface LoginView extends MvpView {
+public interface FeedView extends MvpView {
 
-    void failedSignIn(String message);
-    void hideError();
-    void gotoTest();
-    void gotoFeed();
+    void showPosts(List<PostDTO> data);
+
 }
