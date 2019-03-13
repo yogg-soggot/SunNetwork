@@ -3,8 +3,8 @@ package com.example.yogg_sogott.sunnetwork.presentation;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
-import com.example.yogg_sogott.sunnetwork.data.PseudoAuthentication;
 import com.example.yogg_sogott.sunnetwork.domain.AuthValidation;
+
 
 @InjectViewState
 public class LoginPresenter extends MvpPresenter<LoginView> {

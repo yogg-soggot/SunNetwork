@@ -2,10 +2,8 @@ package com.example.yogg_sogott.sunnetwork.presentation;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
-import com.example.yogg_sogott.sunnetwork.data.PseudoAuthentication;
 import com.example.yogg_sogott.sunnetwork.domain.AuthValidation;
-
-import dagger.Component;
+import com.example.yogg_sogott.sunnetwork.presentation.AuthValidationComponent;
 
 @InjectViewState
 public class CreateAccountPresenter extends MvpPresenter<CreateAccountView> {

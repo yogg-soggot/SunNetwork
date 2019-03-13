@@ -91,7 +91,7 @@ public class LoginActivity extends MvpActivity implements LoginView {
 
     @Override
     public void gotoFeed() {
-        Intent intent = new Intent(getApplicationContext(),FeedActivity.class);
+        Intent intent = new Intent(getApplicationContext(),CommentsActivity.class);
         startActivity(intent);
     }
 }

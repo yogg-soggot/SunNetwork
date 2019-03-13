@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item"
+    android:id="@+id/item_comment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/background_light">
 
 
     <TextView
-        android:id="@+id/user_name"
+        android:id="@+id/user_name_comment"
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_marginStart="24dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/post_text"
+        android:id="@+id/comment_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -33,34 +33,20 @@
         android:text="This is a text of a post. The text is big, coz i need to explain my opinion."
         android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/divider1" />
-
-    <ImageView
-        android:id="@+id/comments"
-        android:layout_width="22dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="comments"
-        android:src="@drawable/comments"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.373"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/divider2" />
+        app:layout_constraintTop_toTopOf="@+id/divider1_comments" />
 
     <View
-        android:id="@+id/divider"
+        android:id="@+id/divider_comments"
         android:layout_width="match_parent"
         android:layout_height="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/separator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comments" />
+        app:layout_constraintTop_toTopOf="@+id/divider2_comments" />
 
     <View
-        android:id="@+id/divider1"
+        android:id="@+id/divider1_comments"
         android:layout_width="395dp"
         android:layout_height="1dp"
         android:layout_marginStart="8dp"
@@ -70,10 +56,10 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_name" />
+        app:layout_constraintTop_toBottomOf="@+id/user_name_comment" />
 
     <View
-        android:id="@+id/divider2"
+        android:id="@+id/divider2_comments"
         android:layout_width="395dp"
         android:layout_height="1dp"
         android:layout_marginStart="8dp"
@@ -82,6 +68,6 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_text" />
+        app:layout_constraintTop_toBottomOf="@+id/comment_text" />
 
 </android.support.constraint.ConstraintLayout>

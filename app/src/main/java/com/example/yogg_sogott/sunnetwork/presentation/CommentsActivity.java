@@ -10,14 +10,14 @@ import android.widget.ProgressBar;
 import com.arellomobile.mvp.MvpActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.yogg_sogott.sunnetwork.R;
-import com.example.yogg_sogott.sunnetwork.data.PostDTO;
+import com.example.yogg_sogott.sunnetwork.data.CommentDTO;
 
 import java.util.List;
 
-public class FeedActivity extends MvpActivity implements FeedView {
+public class CommentsActivity extends MvpActivity implements CommentsView {
 
     @InjectPresenter
-    FeedPresenter mFeedPresenter;
+    CommentsPresenter commentsPresenter;
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -27,31 +27,28 @@ public class FeedActivity extends MvpActivity implements FeedView {
     @Override
     protected void onCreate(Bundle saveInstanceState){
         super.onCreate(saveInstanceState);
-        setContentView(R.layout.activity_feed);
+        setContentView(R.layout.activity_comments);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        progressBar = findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar_comments);
 
-        recyclerView = findViewById(R.id.recycler);
+        recyclerView = findViewById(R.id.recycler_comments);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        mFeedPresenter.getData();
-
-
-
-
+        commentsPresenter.getData(1);
     }
 
 
     @Override
-    public void showPosts(List<PostDTO> data) {
-        mAdapter = new MyAdapter(data);
+    public void showComments(List<CommentDTO> data) {
+        mAdapter = new CommentsAdapter(data);
         recyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
+
     }
 
     @Override
-    public void hideProgressBar(){
+    public void hideProgressBar() {
 
         progressBar.setVisibility(View.INVISIBLE);
 
