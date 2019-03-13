@@ -4,29 +4,11 @@
       "id":1,
       "user_login":"Solaire",
       "body":"Praise The Sun!"
-      "comments":[
-         {
-           "id":1,
-           "user_login":"Nikita",
-           "body":"Hey, welcome to my project, hope you enjoy it!"
-         },
-         {
-           "id":2,
-           "user_login":"Yogg-Soggot",
-           "body":"Praise the sun!"
-         },
-       ]
     },
     {
-      "id":2,  
+      "id":2,
       "user_login":"Nikita",
       "body":"Hello everyone! If you see this post, it means that my project works fine! It is not finally complete, may be I will add proper authentication and backend later."
-      "comments":[
-         {
-           "id:1,
-           "user_login":"Solaire",
-           "body":"Nice! Good luck on your way!",
-         }
     },
     {
       "id":3,
