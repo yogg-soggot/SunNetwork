@@ -23,6 +23,7 @@ public class CommentsActivity extends MvpActivity implements CommentsView {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ProgressBar progressBar;
+    private int postId;
 
     @Override
     protected void onCreate(Bundle saveInstanceState){
@@ -35,7 +36,9 @@ public class CommentsActivity extends MvpActivity implements CommentsView {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        commentsPresenter.getData(1);
+        postId = getIntent().getIntExtra("post_id",1);
+
+        commentsPresenter.getData(postId);
     }
 
 

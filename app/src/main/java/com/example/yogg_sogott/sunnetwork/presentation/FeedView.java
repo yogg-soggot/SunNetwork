@@ -16,4 +16,7 @@ public interface FeedView extends MvpView {
     @StateStrategyType(SingleStateStrategy.class)
     void hideProgressBar();
 
+    @StateStrategyType(SingleStateStrategy.class)
+    void gotoComments();
+
 }

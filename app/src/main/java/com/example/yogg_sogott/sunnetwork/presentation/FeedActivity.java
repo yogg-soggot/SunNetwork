@@ -1,9 +1,12 @@
 package com.example.yogg_sogott.sunnetwork.presentation;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -35,6 +38,7 @@ public class FeedActivity extends MvpActivity implements FeedView {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+
         mFeedPresenter.getData();
 
 
@@ -55,5 +59,11 @@ public class FeedActivity extends MvpActivity implements FeedView {
 
         progressBar.setVisibility(View.INVISIBLE);
 
+    }
+
+    @Override
+    public void gotoComments(){
+        Intent intent = new Intent(getApplicationContext(),CommentsActivity.class);
+        startActivity(intent);
     }
 }
