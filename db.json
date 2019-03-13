@@ -20,5 +20,28 @@
       "user_login":"Test",
       "body":"This post is made to test my recycler view"
     }
-  ]
+  ],
+  "comments": [
+    {
+      "id":1,
+     "user_login":"Nikita",
+     "body":"Hey! Welcome to my project!",
+     "post_id": 1
+    },
+    {
+      "id":2,
+      "user_login":"Yogg Soggot",
+      "body":"Hey, Sunbro!",
+      "post_id":1
+    },
+    {
+      "id":3,
+      "user_login":"Yogg Soggot",
+      "body":"Great! Good luck on your way!",
+      "post_id":3
+    }
+   ]
+  
+  
+  
 }
