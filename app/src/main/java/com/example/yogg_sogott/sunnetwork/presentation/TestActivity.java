@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import com.arellomobile.mvp.MvpActivity;
 import com.example.yogg_sogott.sunnetwork.R;
+import com.example.yogg_sogott.sunnetwork.data.DaggerNetworkServiceComponent;
 import com.example.yogg_sogott.sunnetwork.data.NetworkService;
+import com.example.yogg_sogott.sunnetwork.data.NetworkServiceComponent;
 import com.example.yogg_sogott.sunnetwork.data.PAuthInitManager;
 import com.example.yogg_sogott.sunnetwork.data.PostDTO;
 
@@ -44,13 +46,17 @@ public class TestActivity extends MvpActivity {
         user = findViewById(R.id.user);
         body = findViewById(R.id.body);
 
+        //Dagger2
+        NetworkServiceComponent NSComponent = DaggerNetworkServiceComponent.create();
+        final NetworkService networkService = NSComponent.getNetworkService();
+
         mGetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 intid = Integer.parseInt(id.getText().toString());
 
-                NetworkService.getInstance()
+                networkService
                         .getJSONApi()
                         .getPostWithID(intid)
                         .enqueue(new Callback<PostDTO>() {
@@ -91,7 +97,7 @@ public class TestActivity extends MvpActivity {
                 postDTO.setBody(body.getText().toString());
                 postDTO.setUserLogin(user.getText().toString());
                 postDTO.setId(Integer.parseInt(id.getText().toString()));
-                NetworkService.getInstance()
+                networkService
                         .getJSONApi()
                         .post(postDTO)
                         .enqueue(new Callback<PostDTO>() {

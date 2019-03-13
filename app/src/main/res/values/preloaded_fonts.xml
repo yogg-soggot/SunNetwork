@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
+        <item>@font/abeezee</item>
+        <item>@font/adamina</item>
+        <item>@font/advent_pro_bold</item>
+        <item>@font/aldrich</item>
+        <item>@font/alegreya_sc_black</item>
+        <item>@font/allerta_stencil</item>
+        <item>@font/amaranth_bold</item>
+        <item>@font/archivo_narrow_bold</item>
+        <item>@font/coustard</item>
+    </array>
+</resources>

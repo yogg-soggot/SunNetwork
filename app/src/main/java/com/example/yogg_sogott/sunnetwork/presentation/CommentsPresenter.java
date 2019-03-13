@@ -1,12 +1,11 @@
 package com.example.yogg_sogott.sunnetwork.presentation;
 
-
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
+import com.example.yogg_sogott.sunnetwork.data.CommentDTO;
 import com.example.yogg_sogott.sunnetwork.data.DaggerNetworkServiceComponent;
 import com.example.yogg_sogott.sunnetwork.data.NetworkService;
 import com.example.yogg_sogott.sunnetwork.data.NetworkServiceComponent;
-import com.example.yogg_sogott.sunnetwork.data.PostDTO;
 
 import java.util.List;
 
@@ -15,33 +14,33 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.internal.EverythingIsNonNull;
 
-
 @InjectViewState
-public class FeedPresenter extends MvpPresenter<FeedView> {
-    void getData(){
+public class CommentsPresenter extends MvpPresenter<CommentsView> {
+    void getData(int id){
 
-       //Dagger2
+        //Dagger2
         NetworkServiceComponent NSComponent = DaggerNetworkServiceComponent.create();
         NetworkService networkService = NSComponent.getNetworkService();
 
-
         networkService
                 .getJSONApi()
-                .getAllPosts()
-                .enqueue(new Callback<List<PostDTO>>() {
-                    @Override
+                .getCommentWithPostId(id)
+                .enqueue(new Callback<List<CommentDTO>>() {
                     @EverythingIsNonNull
-                    public void onResponse(Call<List<PostDTO>> call, Response<List<PostDTO>> response) {
+                    @Override
+                    public void onResponse(Call<List<CommentDTO>> call, Response<List<CommentDTO>> response) {
                         getViewState().hideProgressBar();
-                        getViewState().showPosts(response.body());
+                        getViewState().showComments(response.body());
+
                     }
 
                     @Override
-                    @EverythingIsNonNull
-                    public void onFailure(Call<List<PostDTO>> call, Throwable t) {
+                    public void onFailure(Call<List<CommentDTO>> call, Throwable t) {
+                        getViewState().hideProgressBar();
 
                     }
                 });
+
     }
 
 

@@ -1,69 +1,59 @@
 package com.example.yogg_sogott.sunnetwork.presentation;
 
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ProgressBar;
 
 import com.arellomobile.mvp.MvpActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.yogg_sogott.sunnetwork.R;
-import com.example.yogg_sogott.sunnetwork.data.PostDTO;
+import com.example.yogg_sogott.sunnetwork.data.CommentDTO;
 
 import java.util.List;
 
-public class FeedActivity extends MvpActivity implements FeedView {
+public class CommentsActivity extends MvpActivity implements CommentsView {
 
     @InjectPresenter
-    FeedPresenter mFeedPresenter;
+    CommentsPresenter commentsPresenter;
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ProgressBar progressBar;
+    private int postId;
 
     @Override
     protected void onCreate(Bundle saveInstanceState){
         super.onCreate(saveInstanceState);
-        setContentView(R.layout.activity_feed);
+        setContentView(R.layout.activity_comments);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        progressBar = findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar_comments);
 
-        recyclerView = findViewById(R.id.recycler);
+        recyclerView = findViewById(R.id.recycler_comments);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+        postId = getIntent().getIntExtra("post_id",1);
 
-        mFeedPresenter.getData();
-
-
-
-
+        commentsPresenter.getData(postId);
     }
 
 
     @Override
-    public void showPosts(List<PostDTO> data) {
-        mAdapter = new MyAdapter(data);
+    public void showComments(List<CommentDTO> data) {
+        mAdapter = new CommentsAdapter(data);
         recyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
+
     }
 
     @Override
-    public void hideProgressBar(){
+    public void hideProgressBar() {
 
         progressBar.setVisibility(View.INVISIBLE);
 
-    }
-
-    @Override
-    public void gotoComments(){
-        Intent intent = new Intent(getApplicationContext(),CommentsActivity.class);
-        startActivity(intent);
     }
 }

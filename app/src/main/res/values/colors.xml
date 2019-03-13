@@ -7,4 +7,7 @@
     <color name="colorCreate">#C29E29</color>
     <color name="colorCreateAccount">#C29E29</color>
     <color name="colorError">#DF0000</color>
+    <color name="Font">#085670</color>
+    <color name="separator">#E2C2C2</color>
+    <drawable name="colorBackground">#989696</drawable>
 </resources>
