@@ -83,11 +83,7 @@ public class LoginActivity extends MvpActivity implements LoginView {
             mErrorDialog.cancel();
         }
     }
-    @Override
-    public void gotoTest() {
-        Intent intent = new Intent(getApplicationContext(),TestActivity.class);
-        startActivity(intent);
-    }
+
 
     @Override
     public void gotoFeed() {

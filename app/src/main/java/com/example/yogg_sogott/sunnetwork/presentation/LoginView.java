@@ -9,6 +9,5 @@ public interface LoginView extends MvpView {
 
     void failedSignIn(String message);
     void hideError();
-    void gotoTest();
     void gotoFeed();
 }

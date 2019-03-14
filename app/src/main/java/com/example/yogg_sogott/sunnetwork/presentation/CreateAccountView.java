@@ -11,4 +11,8 @@ public interface CreateAccountView extends MvpView {
 
     void hideError();
 
+    void gotoLogIn();
+
+    void onSuccess(String message);
+
 }

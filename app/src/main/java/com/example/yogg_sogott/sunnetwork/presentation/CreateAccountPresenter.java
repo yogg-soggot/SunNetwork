@@ -23,7 +23,7 @@ public class CreateAccountPresenter extends MvpPresenter<CreateAccountView> {
             //Setting fields so we can compare them
             aV.creationSetter(login, password, repeat);
         if (aV.checkIfPasswordsAreSame()) {
-            getViewState().failedCreateAccount("Success!");
+            getViewState().onSuccess("Success!");
             //Accessing PAuth obj and creating local account
             aV.getCreation().createAccount();
         } else getViewState().failedCreateAccount("Passwords don't match!");

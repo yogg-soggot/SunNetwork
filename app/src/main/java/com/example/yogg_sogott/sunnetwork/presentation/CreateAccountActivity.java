@@ -1,6 +1,7 @@
 package com.example.yogg_sogott.sunnetwork.presentation;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -71,9 +72,31 @@ public class CreateAccountActivity extends MvpActivity implements CreateAccountV
     }
 
     @Override
+    public void onSuccess(String message){
+        mErrorDialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.app_name)
+                .setMessage(message)
+                .show();
+        mErrorDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                mCreateAccountPresenter.onErrorCancel();
+                gotoLogIn();
+            }
+        });
+
+    }
+
+    @Override
     public void hideError() {
         if (mErrorDialog != null && mErrorDialog.isShowing()) {
             mErrorDialog.cancel();
         }
+    }
+
+    @Override
+    public void gotoLogIn(){
+        Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+        startActivity(intent);
     }
 }

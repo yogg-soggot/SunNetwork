@@ -24,8 +24,10 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
         aV.creationSetter(login,password);
         aV.getSigning().auth();
         if (aV.checkPassword()){
-           // getViewState().failedSignIn("Success!");
-            aV.getSigning().setConfirmedLogin(login);
+            if(login==null|login.equals("")){
+                aV.getSigning().setConfirmedLogin("Anonymous");
+            } else aV.getSigning().setConfirmedLogin(login);
+
             getViewState().gotoFeed();
         } else getViewState().failedSignIn("Password is wrong!");
     }
