@@ -39,6 +39,17 @@
       "user_login":"Yogg Soggot",
       "body":"Great! Good luck on your way!",
       "post_id":2
+    },
+    {
+      "id":4,
+      "user_login":"Yogg Soggot",
+      "body":"This is sad",
+      "post_id":3
+    },
+    "id":5,
+      "user_login":"Solaire",
+      "body":"Ok",
+      "post_id":4
     }
    ]
   
