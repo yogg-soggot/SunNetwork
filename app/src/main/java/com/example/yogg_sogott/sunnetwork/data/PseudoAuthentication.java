@@ -60,7 +60,7 @@ public class PseudoAuthentication {
 
     }
 
-    public String getConfirmedLogin(){
+    public static String getConfirmedLogin(){
         return sharedPref.getString(CONFIRMED_LOGIN_KEY,"Anonymous");
     }
 

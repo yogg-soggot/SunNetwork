@@ -18,6 +18,7 @@ import retrofit2.internal.EverythingIsNonNull;
 
 @InjectViewState
 public class FeedPresenter extends MvpPresenter<FeedView> {
+    private List<PostDTO> data;
     void getData(){
 
        //Dagger2
@@ -32,8 +33,9 @@ public class FeedPresenter extends MvpPresenter<FeedView> {
                     @Override
                     @EverythingIsNonNull
                     public void onResponse(Call<List<PostDTO>> call, Response<List<PostDTO>> response) {
+                        data = response.body();
                         getViewState().hideProgressBar();
-                        getViewState().showPosts(response.body());
+                        getViewState().showPosts(data);
                     }
 
                     @Override
@@ -43,6 +45,8 @@ public class FeedPresenter extends MvpPresenter<FeedView> {
                     }
                 });
     }
+
+
 
 
 }

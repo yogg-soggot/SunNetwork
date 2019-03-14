@@ -84,6 +84,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
 
+    public void addPost(PostDTO post){
+        data.add(post);
+        notifyDataSetChanged();
+    }
+
+
+
+
 
 
 

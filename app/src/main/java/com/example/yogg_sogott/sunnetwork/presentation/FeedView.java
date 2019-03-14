@@ -19,4 +19,6 @@ public interface FeedView extends MvpView {
     @StateStrategyType(SingleStateStrategy.class)
     void gotoComments();
 
+    void getNewPost();
+
 }
